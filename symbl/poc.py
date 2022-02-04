@@ -1,19 +1,20 @@
 import symbl
+import json
 from os.path import exists
 
-DATA_TYPES=[]
 DATA_TYPE_ALL = "all"
 DATA_TYPE_ACTION_ITEMS = "action_items"
 DATA_TYPE_TOPICS = "topics"
 DATA_TYPE_FOLLOW_UPS = "follow_ups"
 DATA_TYPE_QUESTIONS = "questions"
+DATA_TYPES=[DATA_TYPE_ALL, DATA_TYPE_ACTION_ITEMS, DATA_TYPE_TOPICS, DATA_TYPE_FOLLOW_UPS, DATA_TYPE_QUESTIONS]
 
 def getFileName(data_type):
     return "mockdata/%s.output" % (data_type)
 
 def saveAndReturn(data_type, data):
     file=open(getFileName(data_type), 'w')
-    # file.write(data)
+    file.write(json.dumps(data.to_dict(), default=str))
     file.close()
     return data
 
@@ -42,8 +43,9 @@ def processAudio(mock=True, local_path="", data_type="all"):
         return saveAndReturn(data_type, conversation_object.get_topics())
 
 def main():
-    data=processAudio(mock=False, data_type=DATA_TYPE_ACTION_ITEMS)
-    print(data)
+    for data_type in DATA_TYPES:
+        data=processAudio(mock=False, data_type=data_type)
+        print(data)
 
 
 # Using the special variable

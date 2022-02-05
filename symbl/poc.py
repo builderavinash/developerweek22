@@ -44,7 +44,7 @@ def processAudio(mock=True, local_path="", data_type="all"):
 
 def main():
     for data_type in DATA_TYPES:
-        data=processAudio(mock=False, data_type=data_type)
+        data=processAudio(mock=True, data_type=data_type)
         print(data)
 
 

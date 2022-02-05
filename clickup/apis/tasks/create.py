@@ -5,6 +5,9 @@ def newTask(access_token, list_id, data=''):
                          data=getTaskObj(),
                         headers={'Authorization': access_token,'Content-Type': 'application/json'})
   print(response.text)
+  task_id=response.json()['id']
+  print('task_id', task_id)
+  return task_id
 
 
 

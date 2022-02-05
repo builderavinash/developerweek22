@@ -6,6 +6,8 @@ import 'package:agora_rtc_engine/rtc_remote_view.dart' as RtcRemoteView;
 import 'package:flutter/material.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:device_info_plus/device_info_plus.dart';
+import 'package:flutter/foundation.dart' show kIsWeb;
+import 'package:universal_html/html.dart' as html;
 
 const channel = "tempChannel";
 const appId = "f096eac98b50484b9cabac5fdfa5087b";
@@ -53,7 +55,12 @@ class _MyAppState extends State<MyApp> {
 
   Future<void> initAgora() async {
     // retrieve permissions
-    await [Permission.microphone, Permission.camera].request();
+    if (kIsWeb) {
+      await html.window.navigator.permissions?.query({"name": "camera"});
+      await html.window.navigator.permissions?.query({"name": "microphone"});
+    } else {
+      await [Permission.microphone, Permission.camera].request();
+    }
 
     //create the engine
     _engine = await RtcEngine.create(appId);

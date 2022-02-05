@@ -7,17 +7,17 @@ Developer Week 22
 
 
 Use Case 1, poc symbl
-- [ ] Python hello world
-- [ ] Get Symbl auth token, [api](https://www.postman.com/symbldotai/workspace/symbl-ai/request/13497402-2c37215c-b1ee-4a68-9ef8-abc46e6cc023)
-- [ ] post video url, [api](https://www.postman.com/symbldotai/workspace/symbl-ai/request/13497402-35bc1b23-bf46-4ff0-a685-0ad84a295045)
-- [ ] fetch action_points for this video, [api](https://www.postman.com/symbldotai/workspace/symbl-ai/request/13497402-3c450685-44c7-441c-8063-cad450e0df41)
+- [x] Python hello world
+- [x] Get Symbl auth token, [api](https://www.postman.com/symbldotai/workspace/symbl-ai/request/13497402-2c37215c-b1ee-4a68-9ef8-abc46e6cc023)
+- [x] post audio, [api](https://www.postman.com/symbldotai/workspace/symbl-ai/request/13497402-35bc1b23-bf46-4ff0-a685-0ad84a295045)
+- [x] fetch action_points for this audio, [api](https://www.postman.com/symbldotai/workspace/symbl-ai/request/13497402-3c450685-44c7-441c-8063-cad450e0df41)
 
 Use Case 2, poc agora
 - [ ] create a call between two users
 - [ ] save call data to a file
 
 Use Case 3, poc clickup
-- [ ] create a task in clickup
+- [x] create a task in clickup
 - [ ] close a task in clickup
 
 Deployment 1 

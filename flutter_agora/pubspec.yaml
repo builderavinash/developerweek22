@@ -37,6 +37,8 @@ dependencies:
   agora_rtc_engine: ^4.2.0
   permission_handler: ^8.3.0
   device_info_plus: ^3.2.1
+  universal_html: ^2.0.8
+  js: ^0.6.3
 
 dev_dependencies:
   flutter_test:

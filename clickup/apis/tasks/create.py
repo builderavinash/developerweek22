@@ -1,6 +1,6 @@
 import requests
 
-def createTask(access_token, list_id, data=''):
+def newTask(access_token, list_id, data=''):
   response=requests.post(f'https://api.clickup.com/api/v2/list/{list_id}/task',
                          data=getTaskObj(),
                         headers={'Authorization': access_token,'Content-Type': 'application/json'})

@@ -9,11 +9,11 @@ code=''
 mutex = Lock()
 
 def getAuthToken(client_id, client_secret):
-    global code
-    getCode(client_id)
-
     if isValidAuthTokenPresent():
         return getSavedAuthToken()
+
+    global code
+    getCode(client_id)
 
     url = f'https://api.clickup.com/api/v2/oauth/token?client_id={client_id}&client_secret={client_secret}&code={code}'
     access_token=requests.post(url).json()['access_token']
@@ -22,6 +22,10 @@ def getAuthToken(client_id, client_secret):
     saveAuthToken(access_token)
 
     return access_token
+
+def getAuthorizedUser(token):
+    response=requests.get('https://api.clickup.com/api/v2/user', headers={'Authorization': token})
+    print('response ', response.text)
 
 # this part would be done in client
 def getCode(client_id):
@@ -69,6 +73,7 @@ def getSavedAuthToken():
     if not exists(filename):
         return ''
     token=open(filename).read()
+    print(token, ' <-- saved token')
     return token
 
 def saveAuthToken(access_token):
